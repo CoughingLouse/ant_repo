@@ -1,0 +1,2 @@
+INDEX VERSION 1.130+C:\_rjko_ant_repo\ant_workspace\.metadata\.plugins\org.eclipse.jdt.core
+2529567628.index
