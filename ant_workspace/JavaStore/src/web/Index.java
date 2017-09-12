@@ -1,5 +1,7 @@
 package web;
 
+import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +23,7 @@ public class Index extends HttpServlet {
      */
 	
 	IStore store = 
-			StoreFactory.create("PROXY","jdbc:mysql://localhost/store?user=root&password=root");
+			StoreFactory.create("PROXY","jdbc:mysql://localhost/JavaStore?user=root&password=toor");
 	
     public Index() {
         super();
@@ -34,7 +36,7 @@ public class Index extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		View v = new View();
-		v.folder = "..\\prova\\JavaStore\\WebContent\\template\\";
+		v.folder = "../Users/rjko/_ant/ant_repo/ant_workspace/JavaStore/WebContent/template";
 		// TODO Auto-generated method stub
 		response
 			.getWriter()

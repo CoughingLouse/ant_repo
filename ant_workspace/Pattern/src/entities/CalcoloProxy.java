@@ -1,11 +1,12 @@
 package entities;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CalcoloProxy implements ICalcolo 
 {
 	
-	ArrayList<ChiamataCalcolo> cache
-	= new ArrayList<ChiamataCalcolo>();
+	HashMap<Integer,Integer> cache
+	= new HashMap<Integer,Integer>();
 	
 	private Calcolo c = new Calcolo();
 
@@ -13,17 +14,12 @@ public class CalcoloProxy implements ICalcolo
 	public int massimoPrimo(int n) 
 	{
 		int ris = 0;
-		boolean trovato = false;
-		for(ChiamataCalcolo c:cache)
-			if(c.n==n)
-			{
-				ris = c.r;
-				trovato = true;
-			}
-		if(!trovato) 
+		if(cache.get(n)!=null)
+			ris = cache.get(n);
+		else
 		{
-			ris= c.massimoPrimo(n);
-			cache.add(new ChiamataCalcolo(n,ris));
+			ris = c.massimoPrimo(n);
+			cache.put(n, ris);
 		}
 		return ris;
 	}

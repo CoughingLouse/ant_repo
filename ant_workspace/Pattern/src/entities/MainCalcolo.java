@@ -10,9 +10,9 @@ public class MainCalcolo {
 		
 		System.out.println(c.massimoPrimo(60000));
 		System.out.println(c.massimoPrimo(60000));
+		System.out.println(c.massimoPrimo(59000));
 		System.out.println(c.massimoPrimo(60000));
-		System.out.println(c.massimoPrimo(60000));
-		System.out.println(c.massimoPrimo(60000));
+		System.out.println(c.massimoPrimo(59000));
 		
 		
 	}
