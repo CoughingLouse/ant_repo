@@ -7,7 +7,7 @@ public class Ufficio2017
 	{
 		ConsumoAcqua2017 c = new ConsumoAcqua2017(1000,1);
 		
-		System.out.println(c.sollevato2017());
+		System.out.println(c.sollevato());
 		
 		
 	}

@@ -10,7 +10,6 @@ public class ConsumoAcqua2017
 	{
 		this.li = li;
 		this.ci = ci;
-		
 	}
 	
 	public int sollevato()

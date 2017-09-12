@@ -1,13 +1,12 @@
 package facade;
 import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
 
 	public static void main(String[] args) 
 	{
-		IDatabase db = new Database("jdbc:mysql://localhost/store?user=root&password=root");
+		IDatabase db = new Database("jdbc:mysql://localhost/JavaStore?user=root&password=toor");
 		
 	
 		HashMap<String,String> cpu

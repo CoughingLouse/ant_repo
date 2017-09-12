@@ -1,5 +1,4 @@
 package entities;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CalcoloProxy implements ICalcolo 
