@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="studente">
+  <xs:complexType>
+  <xs:sequence>
+    <xs:element name="nome" type="xs:string"/>
+    <xs:element name="eta" type="xs:integer"/>
+    <xs:element name="voti">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="voto" minOccurs="0" maxOccurs="unbounded">
+            <xs:complexType>
+            	<xs:sequence>
+	              <xs:element name="materia" type="xs:string"/>
+	              <xs:element name="risultato">
+					        <xs:simpleType>
+					          <xs:restriction base="xs:integer">
+					            <xs:minInclusive value="0"/>
+					            <xs:maxInclusive value="10"/>
+					          </xs:restriction>
+					        </xs:simpleType>
+	              </xs:element>
+              </xs:sequence>
+              <xs:attribute name="professore" type="xs:string"/>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

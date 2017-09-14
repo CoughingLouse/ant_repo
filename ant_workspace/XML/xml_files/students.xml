@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<student>
+	<id>10</id>
+	<name>Gloria</name>
+	<surname>Lepri</surname>
+	<age>27</age>
+	<marks>
+		<mark>
+			<subject>Informatica</subject>
+			<date>2017-09-14</date>
+			<judgement>8</judgement>
+			<studentid>10</studentid>
+		</mark>
+		<mark>
+			<subject>Informatica</subject>
+			<date>2017-09-15</date>
+			<judgement>8</judgement>
+			<studentid>10</studentid>
+		</mark>
+	</marks>
+</student>
+
+# la ridondanza di <studentid> dovrebbe essere corretta con l'attributo <id> sotto <student>

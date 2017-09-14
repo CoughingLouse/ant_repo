@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studente>
+  <nome>Vlad</nome>
+  <eta>460</eta>
+  <voti>
+    <voto professore="Erzbet">
+      <materia>Italiano</materia>
+      <risultato>7</risultato>
+    </voto>
+    <voto professore="Ferdinando">
+      <materia>Matematica</materia>
+      <risultato>7</risultato>
+    </voto>
+  </voti>
+
+</studente>
