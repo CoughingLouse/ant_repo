@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studente>
+  <nome>Chow Po</nome>
+  <classe>2</classe>
+  <sezione>A</sezione>
+  <voti>
+    <italiano>7</italiano>
+    <matematica>8</matematica>
+    <storia>9</storia>
+  </voti>
+</studente>

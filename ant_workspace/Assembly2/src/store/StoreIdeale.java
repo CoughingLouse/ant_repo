@@ -20,6 +20,8 @@ public class StoreIdeale implements IStore {
 		database = new Database(path);
 	}
 	
+	//public List<HashMap<String,String>> 
+	
 	public ArrayList<Product> listProduct(String type)
 	{
 		// devo trasformare le HashMap in oggetti di dominio
