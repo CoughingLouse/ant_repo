@@ -65,17 +65,3 @@ from person as sposo1
     sposo1.mateid=sposo2.id
     inner join person as suocera on
     sposo2.motherid=suocera.id
-
--- query a casuccia; l'unica suocera è Jessica Henger
--- Aggiungere nel db qualche bene costoso e stipendio mensile
-01  elenco delle persone con relativo patrimonio (somma di quello che hanno)
-02  patrimonio medio di una donna di Milano
-03  partimonio medio per un uomo diviso per città
-04  nome del marito, nome della moglie, somma dei loro patrimoni
-05  nome e cognome di tutte le persone il cui padre sia di Milano (solo il padre!)
-06  nome e cognome di tutte le persone il cui padre o la cui madre guadagnano più di 3000 euro al mese
-07  nome e cognome di tutti gli uomini che sono padri, senza ripetizioni
-08  nome e cognome di tutte le donne con almeno 3 figli (having)
-09  numero dei single divisi per città
-10  (lunedì mattina) stampare nomi donne single la cui madre, il cui padre o loro stesse (or)
-    abbiano un patrimonio immobiliare di almeno 100.000
