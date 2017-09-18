@@ -12,7 +12,7 @@
 10  (lunedì mattina) stampare nomi donne single la cui madre, il cui padre o loro stesse (or)
     abbiano un patrimonio immobiliare di almeno 100.000
 
-01
+01  OK
 select
     concat(p.name,' ',p.surname) as Persona,
     sum(ps.value) as Averi
@@ -27,7 +27,7 @@ from person as p left join possession as ps on p.id=ps.idp
 group by Persona
 order by Averi desc, Persona asc;
 
-02  patrimonio medio di una donna di Milano
+02  KO
 select
     concat(p.name,' ',p.surname) as Persona,
     avg(ps.value) as patrimonioMedio
@@ -38,25 +38,44 @@ where
     p.id=ps.idp
 group by Persona;
 
-03
+02  OK
+select
+		(sum(possession.value)/count(distinct person.id)) as patrimonioMedio
+from
+		person
+    inner join
+    possession
+    on
+    person.id=possession.idp
+where
+		gender='F' and
+    residence='Rezzano';
+
+03  OK
 select
     p.residence as Citta,
-    avg(ps.value) as patrimonioMedio
+    (sum(ps.value)/count(distinct p.id)) as patrimonioMedio
 from person as p, possession as ps
 where
     gender='M' and
-    residence='Milano' and
     p.id=ps.idp
 group by Citta;
 
 04
 select
-    concat(p.name,' ',p.surname) as Persona,
-    concat(c.name,' ',c.surname) as Coniuge,
-    sum(ps.value) as patrimonioCongiunto
-from person as p, person as c, possession as ps
-where p.mateid=c.mateid and p.id=ps.idp
-group by Persona;
+		concat(sposo1.name,' ',sposo1.surname) as Sposo1,
+    concat(sposo2.name,' ',sposo2.surname) as Sposo2,
+    sum(sommabeni1.value) as Totale
+from
+		person as sposo1
+    inner join
+    person as sposo2 on sposo1.mateid=sposo2.id
+    inner join
+    possession as sommabeni1 on
+  		sposo1.id=sommabeni1.idp
+      or
+      sposo2.id=sommabeni1.idp
+group by sposo1.id;
 
 05
 select
@@ -66,27 +85,52 @@ where p.fatherid=father.id and father.residence='Milano'
 
 06
 select
-		concat(p.name,' ',p.surname) as Persona,
-from person as p, person as father, person as mother, occupation as o
+		concat(son.name,' ',son.surname) as Persona
+from
+		person as son
+        left join
+        person as father
+			on
+			son.fatherid=father.id
+		left join
+        person as mother
+			on
+            son.motherid=mother.id
+		inner join
+        occupation
+			on
+            occupation.idperson=father.id
+            or
+            occupation.idperson=mother.id
 where
-		p.fatherid=father.id and
-    p.motherid=mother.id and
-    (o.idperson=father.id or o.idperson=mother.id)>3000;
+		occupation.wage>3000
 
-07
-select distinct
+07  (distinct oppure group by father.id)
+select
     concat(father.name,' ',father.surname) as Padre
-from person as p, person as father
-where p.fatherid=father.id
+from
+    person as son
+    inner join
+    person as father
+    on
+    son.fatherid=father.id
+group by
+    father.id
 
 08
 select
-    concat(mother.name,' ',mother.surname) as Madre
-from person as p, person as mother
-where
-    p.motherid=mother.id
-group by Madre
-having count(*)>3
+    concat(mother.name,' ',mother.surname) as Madre,
+    count(*) as numeroFigli
+from
+	person as children
+    inner join
+    person as mother
+    on
+    children.motherid=mother.id
+group by
+	mother.id
+having
+	numeroFigli>3
 
 09
 select residence, count(*)
@@ -95,3 +139,18 @@ where mateid is null
 group by residence;
 
 10
+select
+	concat(name,' ',surname) as Persona
+from
+	person
+where mateid is null
+	and
+    (
+		id in
+		(select id from patrimoni where patrimonio > 100000)
+        or fatherid in
+        (select id from patrimoni where patrimonio > 100000)
+        or motherid in
+        (select id from patrimoni where patrimonio > 100000)
+	)
+  
