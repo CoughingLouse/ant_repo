@@ -114,4 +114,101 @@ end
 -- query esempio 5 (con procedure)
 call avgwage(1)
 
--- 
+-- SECONDA META
+01	-- function che restituisce quante cars possiede ognuno
+delimiter //
+create function owners(idc int) returns int
+begin
+	declare ris int;
+  set ris = (select count(*) from ride where  idc=carid);
+  return ris;
+end
+//
+--
+select distinct
+	carid,
+  owners(carid) as nPossessori
+from
+	ride
+
+02	KO -- dato l'id di una persona dire quanti giorni è stato sposato in totale
+delimiter //
+create function daysmarried(idp int) returns int
+begin
+	declare ris int;
+    set ris = (select sum(
+										datediff(
+										if(ending is null, now(), ending), beginning)
+									)
+					from relation
+                    where type='married' and (idp=idp1 or idp=idp2));
+    return ris;
+end
+//
+--
+select
+	concat(name,' ',surname) as Persona,
+	daysmarried(id) as giorniSposati
+from person
+
+03 KO
+-- fare una procedure che dato un id di persona stampi una tabella che ha due colonne:
+-- una avrà il nome e l'altra il periodo in giorni del lavoro più longevo di quella persona
+delimiter //
+create procedure longerjob(idp int)
+begin
+	select
+		occupation.name as job,
+        datediff(ending,beginning) as days
+	from occupation
+    where
+		occupation.idperson=idp and
+        datediff(ending,beginning) = (select max(datediff(ending,beginning)) where idp=idperson);
+end
+//
+--
+select
+	concat(name,' ',surname) as Persona,
+	daysmarried(id) as giorniSposati
+from person
+
+-- query per fiki
+-- overlappingmarriage
+delimiter //
+create procedure poligamy(idpersona int)
+begin
+	select
+		*
+	from
+		relation as rel, relation as old
+	where
+		rel.type='marriage' and old.type='marriage'
+		and
+		(rel.idp1=id or rel.idp2=idpersona)
+		and
+		(old.idp1=idpersona or old.idp2=idpersona)
+		and
+		rel.id <> old.id
+		and
+		(
+		(
+		rel.beginning between old.beginning and
+		if(old.ending is null, now(), old.ending)
+		or
+		if(rel.ending is null, now(), rel.ending)
+		between old.beginning and
+		if(old.ending is null, now(), old.ending)
+		)
+		or
+		(
+		old.beginning between rel.beginning and
+		if(rel.ending is null, now(), rel.ending)
+		or
+		if(old.ending is null, now(), old.ending)
+		between rel.beginning and
+		if(rel.ending is null, now(), rel.ending)
+		)
+		);
+end
+//
+--
