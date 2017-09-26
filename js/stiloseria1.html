@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>STILOSERIA1</title>
+    <meta charset="UFT-8"/>
+    <script src="stiloseria1.js"></script>
+  </head>
+  <body>
+    <div>
+    <input type="text" id="t1"/><br/>
+    <input type="text" id="t2"/>
+    </div>
+    <br/>
+    <div>
+      <!-- background: linear-gradient(red, yellow, green) -->
+    <button style="width:100px;height:50px;color:black;"
+            onClick="res.innerHTML = stiloseria1(t1.value,t2.value);" onmouseover="this.style.backgroundColor='blue'; this.style.color='white'"
+            onmouseout="this.style.backgroundColor=''; this.style.color='black'">
+      Concat</button>
+    </div>
+    <br/>
+    
+    <p>CONCAT: <span id="res"></span></p>
+  </body>
+</html>

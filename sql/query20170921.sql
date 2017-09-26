@@ -279,8 +279,6 @@ begin
 end
 //
 
-
-
 02
 -- stampare la percentuale di matrimoni finiti (anche senza function)
 select count(*) / nMatrimoniFiniti()
