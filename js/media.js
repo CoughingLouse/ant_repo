@@ -35,3 +35,10 @@ function check2(){
     media(v);
   }
 }
+  if(v.length !== 5){
+    alert(v.length + " numeri non sono 5. Riprova.");
+  }
+  else{
+    media(v);
+  }
+}

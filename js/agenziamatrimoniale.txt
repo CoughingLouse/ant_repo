@@ -1,0 +1,19 @@
+un oggetto persona avrà un _nome e un array _interessi[string];
+fare "scaffolding", ovvero creare 4 persone.
+
+n:A, interessi:A,B,C
+n:B, int:A,B
+n:C, int:D,B
+n:D, int:B,E,A
+
+trovare coppie che hanno più interessi in comune
+
+ab -> 2
+ac -> 1
+ad -> 2
+bc -> 1
+bd -> 2
+cd -> 1
+
+1) trovare valore più alto interessi in comune
+- ingresso persone e ritorno numero max interessi

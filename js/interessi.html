@@ -1,0 +1,22 @@
+<html>
+  
+  <head>
+    <meta charset='UTF-8'/>
+    <title>INTERESSI</title>
+  </head>
+  <body>
+    <input type="text" placeholder="name" id="name"/>&nbsp;
+    <br/>
+    
+      <input type="checkbox" name="hobby" value="lettura" id="lettura"/>Lettura<br/>
+      <input type="checkbox" name="hobby" value="videogame" id="vg" checked/>Videogame<br/>
+      <input type="checkbox" name="hobby" value="cinema" id="cinema"/>Cinema<br/>
+      <input type="checkbox" name="hobby" value="sport" id="sport"/>Sport<br/>
+      <button id="btn" onClick="aggiungi(name.value, lettura.checked, vg.checked, cinema.checked, sport.checked)">Aggiungi</button>
+    
+    <p>Persone:<br/>
+    <span id="lista"></span></p>
+    
+    <script src="interessi.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+  <meta charset='UTF-8'/>
+  <head>
+    <title>CASA</title>
+    <style>
+      .container {
+        width: 35%;
+      }
+      label {
+        font-style: italic;
+        font-weight: bold;
+      }
+      .result {
+        background-color: aquamarine;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label>Salotto (mq): </label>
+      <input type="number" id="salotto" autofocus/><br/>
+      <label>Bagno (mq): </label>
+      <input type="number" id="bagno"/><br/>
+      <label>#Camere: </label>
+      <select id="camere">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label>Balcone: </label>
+      <select id="balcone">
+        <option value="si">SI</option>
+        <option value="no" selected>NO</option>
+      </select>
+      <button onClick="calcola(
+                       salotto.value, bagno.value,
+                       camere.options[camere.selectedIndex].value, balcone.value)">Calcola</button>
+      <br/><br/>
+
+      <div class="result">
+        <p>Prezzo: <span id="prezzo"></span></p>
+      </div>
+    </div>
+    
+    <script src="casa.js"></script>
+  </body>
+</html>
