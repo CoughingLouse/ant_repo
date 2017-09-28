@@ -1,19 +1,19 @@
 <html>
   <meta charset='UTF-8'/>
   <head>  
-    <title>DATAEXISTS</title>
+    <title>DATEEXISTS</title>
   </head>
   <body>
     <select id="selectAnno"></select>
     <select id="selectMese"></select>
     <select id="selectGiorno"></select>
     
-    <button onClick="check0(selectAnno.options[selectAnno.selectedIndex].value, selectMese.options[selectMese.selectedIndex].value, selectGiorno.options[selectGiorno.selectedIndex].value);">Exists?
+    <button onClick="check(selectAnno.options[selectAnno.selectedIndex].value, selectMese.options[selectMese.selectedIndex].value, selectGiorno.options[selectGiorno.selectedIndex].value);">Exists?
     </button>
     <button onClick="setDummyDate();">Set</button>
     
     <p id="res"></p>
     
-    <script src="dataexists.js"></script>
+    <script src="dateexists2.js"></script>
   </body>
 </html>

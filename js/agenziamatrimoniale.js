@@ -37,9 +37,8 @@ function match(){
             count++;
         }
       }
-    
+      console.log(persone[i]+'->'+persone[k]+':'+count);
+      count=0;    
     }
   }
-  
-  console.log(count);
 }
