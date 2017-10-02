@@ -1,0 +1,84 @@
+<!--
+  Inserire nome, cognome, data nascita, genere
+  Calcolare il cf in questo modo:
+  - prime 3 lettere del cognome
+  - prime 3 lettere del nome
+  - ultime due cifre dell'anno di nascita
+  - prima lettere del mese di nascita
+  - giorno di nascita (+40 se donna)
+-->
+
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+      var app = angular.module('cf', []);
+      
+      app.controller('cfController', function($scope)
+      {
+        $scope.persona =
+        {
+          nome : '',
+          cognome : '',
+          nascita : undefined,
+          genere : '',
+          
+          cf : function()
+          {
+            var ris = '';
+            var d = this.nascita.toDateString();
+          
+            ris += this.cognome.substr(0,3);
+            ris += this.nome.substr(0,3);
+            ris += d.substr(-2);
+            ris += d.split(" ")[1][0];
+            
+            if(this.genere == 'f')
+              ris += parseInt(d.split(" ")[2])+40;
+            else
+              ris += d.split(" ")[2];
+            
+            return ris;//.toUpperCase();
+          }     
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+  <div ng-app="cf" ng-controller="cfController">
+    <table>
+      <tr>
+        <td colspan=2><b> :: Codice Fiscale :: </b></td>
+      </tr>
+      <tr>
+        <td> Nome: </td>
+        <td><input type="text" ng-model="persona.nome" /></td>
+      </tr>
+      <tr>
+        <td> Cognome: </td>
+        <td><input type="text" ng-model="persona.cognome" /></td>
+      </tr>
+      <tr>
+        <td> Nascita: </td>
+        <td><input type="date" ng-model="persona.nascita" /></td>
+      </tr>
+      <tr>
+        <td> Genere: </td>
+        <td>
+          <form>
+            <input type="radio" value="f" ng-model="persona.genere"/>f
+            <input type="radio" value="m"  ng-model="persona.genere" ng-checked="true" />m
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"> {{ persona.cf() | uppercase }}</td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>

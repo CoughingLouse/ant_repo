@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <title>[Angular] LISTONE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="listone.js"></script>
+  </head>
+
+  <body>
+  <div ng-app="listone" ng-controller="listoneController">
+    Nome: <input type="text" ng-model="nome" /><br/>
+    Cognome: <input type="text" ng-model="cognome" /><br/>
+    Età: <input type="number" ng-model="eta" /><br/>
+    
+    <button ng-click="aggiungi()">Aggiungi</button>
+    
+    <table>
+      <tr>
+        <td> Nome | </td>
+        <td> Cognome | </td>
+        <td> Età | </td>
+      </tr>
+      <tr ng-repeat="i in persone">
+        <td>{{ i.nome }}</td>
+        <td>{{ i.cognome }}</td>
+        <td>{{ i.eta }}</td>
+      </tr>
+    </table>
+    
+  </div>
+
+</body>
+</html>

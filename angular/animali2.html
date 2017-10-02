@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <title>[Angular] ANIMALI2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="animali2.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <style>
+      tr:hover {
+        background-color: #2196f3;
+      }
+    </style>
+  </head>
+
+  <body style="width:70%">
+  <div ng-app="animali" ng-controller="animaliController">
+    <input type="text" ng-model="nome" placeholder="nome" autofocus/>
+    <input type="text" ng-model="razza" placeholder="razza"/><br/>
+    <input type="text" ng-model="nome" placeholder="nome padrone"/>
+    <input type="text" ng-model="cognome" placeholder="cognome padrone"/>
+    <button ng-click="aggiungi()">Aggiungi</button>
+    <input type="text" placeholder="ricerca padrone" ng-model="p" />
+    
+    <table class="w3-table w3-centered" style="margin-top:10px">
+      <tr class="w3-orange">
+        <th><b>Razza</b></th>        
+        <th><b>Nome</b></th>      
+        <th><b>NomePadrone</b></th>      
+        <th><b>CognomePadrone</b></th>      
+      </tr>
+      <tr ng-repeat="a in animali | orderBy : ['razza','nome']"
+          ng-show="razzaEsistente(a.razza); ricercaPadrone(a.cognomep)">
+        <td>{{ a.razza }}</td>
+        <td>{{ a.nome }}</td>
+        <td>{{ a.nomep }}</td>
+        <td>{{ a.cognomep }}</td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>

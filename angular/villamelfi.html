@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+      var app = angular.module('villaMelfi', []);
+      
+      app.controller('villaMelfiController', function($scope)
+      {
+        $scope.persona =
+        {
+          nome:'',
+          cognome:'',
+          eta:undefined,
+          donatore:bool,
+          professione:'',
+          residenza:'',
+          biglietto:function()
+          {
+            var e = this.eta;
+            var c = this.cognome;
+            var d = this.donatore;
+            var p = this.professione;
+            var r = this.residenza;
+            
+            var ris = 10;
+            if(r == 'melzi')
+              ris = 0;
+            else
+            {
+              if(d == 'si')
+                ris = 4.5;
+              else
+              {
+                if(p=="Insegnante" || p=='Studente')
+                  ris = 5;
+                else
+                {
+                  if(e<5 || e>70)
+                    ris = 6;
+                }
+              }
+            }
+            return ris;
+          }
+        }                     
+      });
+    </script>
+  </head>
+
+  <body>
+  <div ng-app="villaMelfi" ng-controlelr="villaMelfiController">
+    <table>
+      <tr>
+        <td colspan=2> :: Biglietto Melzi :: </td>
+      </tr>
+      <tr>
+        <td> Nome: </td>
+        <td><input type="text" ng-model="persona.nome" /></td>
+      </tr>
+      <tr>
+        <td> Eta: </td>
+        <td><input type="number" ng-model="persona.eta" /></td>
+      </tr>
+      <tr>
+        <td> Professione: </td>
+        <td><input type="text" ng-model="persona.professione" /></td>
+      </tr>
+      <tr>
+        <td> Donatore: </td>
+        <td>
+          <form>
+            <label>si</label><input type="radio" name="donatore" ng-model="persona.donatore" value="si" />
+            <label>no</label><input type="radio" name="donatore" ng-model="persona.donatore" value="no" ng-checked="true" />
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td> Residenza: </td>
+        <td><input type="text" ng-model="persona.residenza" /></td>
+      </tr>
+      <tr>
+        <td> {{persona.biglietto()}} &euro;</td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>
