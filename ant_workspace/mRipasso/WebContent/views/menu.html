@@ -1,0 +1,35 @@
+<html>
+<meta charset="UTF-8"/>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="views/script.js"></script>
+	<link rel="stylesheet" href="views/w3css.css"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+	<style>
+		a {
+			color: white;
+			font-size: 1.5em;
+			font-family: 'Lobster', serif;
+		}
+	</style>
+</head>
+<body ng-app="script" ng-controller="scriptController">
+
+	<div class="w3-bar w3-brown">
+		<a ng-click="mostra = 'home'" class="w3-bar-item w3-button">Home</a>
+		<a ng-click="mostra = 'list'" class="w3-bar-item w3-button">List</a>
+		<a ng-click="mostra = 'forminsertperson'" class="w3-bar-item w3-button">InsertPerson</a>
+		<a ng-click="mostra = 'hobbyjson'" class="w3-bar-item w3-button">ListHobbies</a>
+		<a ng-click="mostra = 'inserthobby'" class="w3-bar-item w3-button">InsertHobby</a>
+		<a ng-click="mostra = 'deleteperson'" class="w3-bar-item w3-button">DeletePerson</a>
+	</div>
+
+	<div ng-include="'views/home.html'" ng-show="mostra == 'home'"></div>
+	<div ng-include="'views/list.html'" ng-show="mostra == 'list'"></div>
+	<div ng-include="'views/forminsertperson.html'" ng-show="mostra == 'forminsertperson'"></div>
+	<div ng-include="'views/hobbyjson.html'" ng-show="mostra == 'hobbyjson'"></div>
+	<div ng-include="'views/inserthobby.html'" ng-show="mostra == 'inserthobby'"></div>
+	<div ng-include="'views/deleteperson.html'" ng-show="mostra == 'deleteperson'"></div>
+	
+</body>
+</html>

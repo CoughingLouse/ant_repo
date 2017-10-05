@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <title>[Angular] ANIMALI2_BIS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <script src="animali2_bis.js"></script>
+    <style>
+      th {
+        font-size: bold;
+      }
+      tr:hover {
+        background-color: aquamarine;
+      }
+      input {
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+  <div ng-app="animali" ng-controller="animaliController">
+    
+    <input type="text" placeholder="daCercare" ng-model="dacercare" autofocus/>
+    
+    <table class="w3-table w3-centered" style="width:60%">
+      <tr class="w3-red">
+        <th> NOME </th>
+        <th> SPECIE </th>
+        <th> PADRONE </th>
+      </tr>
+      <tr ng-repeat="x in animali | orderBy : ['specie','nome']" ng-show="mostra(x.padrone)">
+        <td>{{ x.nome }}</td>
+        <td>{{ x.specie }}</td>
+        <td>{{ x.padrone }}</td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>

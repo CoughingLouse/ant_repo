@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <title>[Angular] TRIS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <script src="tris.js"></script>
+    <style>
+      table, td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        margin: 10px auto;
+      }
+      tr {
+        height: 80px;
+      }
+      td {
+        width: 80px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+  <div ng-app="tris" ng-controller="trisController">
+    <table>
+      <tr ng-repeat="mini in tabellone">
+        <td ng-repeat="cas in mini" ng-click="posiziona(cas)">
+          <img style="width:70px" src="{{cas.valore}}.png"/>
+        </td>
+      </tr>
+    </table>
+    <div>
+      <span ng-show="vincitore()!='X' && vincitore()!='O'">Giocate!</span><br/>
+      <span ng-show="vincitore()=='X'">Vince la X!</span><br/>
+      <span ng-show="vincitore()=='O'">Vince la O!</span>
+      <button ng-click="gioca()">Rifai</button>
+    </div>
+  </div>
+
+</body>
+</html>

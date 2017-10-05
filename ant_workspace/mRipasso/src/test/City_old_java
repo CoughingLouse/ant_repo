@@ -11,7 +11,7 @@ import entities.Person;
 
 // DAO (Data Access Object) //
 
-public class City {
+public class City_old {
 	
 	private ArrayList<Person> people = new ArrayList<Person>();
 	private Connection db;
@@ -23,7 +23,7 @@ public class City {
 	private final static String INSERTPERSON =
 			"insert into people (name,age,profession) values (?,?,?)";
 	
-	public City(String dbpath)
+	public City_old(String dbpath)
 	{
 		try
 		{

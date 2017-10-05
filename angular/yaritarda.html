@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <title>[Angular] YARITARDA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <script src="yaritarda.js"></script>
+    <style>
+      tr:hover {
+        background-color: dodgerblue;
+        color: white;
+      }
+      div {
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+  <div ng-app="yaritarda" ng-controller="yaritardaController">
+    
+    <input type="text" placeholder="codice" ng-model="codice"/>
+    <input type="text" placeholder="nome" ng-model="nome"/>
+    <input type="number" placeholder="prezzo" ng-model="prezzo"/>
+    <button ng-click="aggiungi()">Aggiungi</button>
+    <br/><br/>
+    
+    <table class="w3-table w3-centered" style="width:70%">
+      <tr class="w3-yellow">
+        <th> Codice </th>
+        <th> Nome </th>
+        <th> Prezzo </th>
+      </tr>
+      <tr ng-repeat="p in prodotti | orderBy : 'codice'">
+        <td>{{ p.codice }}</td>
+        <td>{{ p.nome }}</td>
+        <td>{{ p.prezzo | currency:'EUR ' }}</td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>

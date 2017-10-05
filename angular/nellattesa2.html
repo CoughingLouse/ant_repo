@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <title>[Angular] NELLATTESA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <script src="nellattesa2.js"></script>
+    <style>
+
+    </style>
+  </head>
+
+  <body>
+  <div ng-app="nellattesa" ng-controller="nellattesaController" style="margin:10px">
+    <input type="number" placeholder="numero" ng-model="numero"/>
+    <button ng-click="aggiungi()">Aggiungi</button>
+    <input type="checkbox" ng-model="pari" ng-checked="true"> pari
+    <input type="checkbox" ng-model="disp" ng-checked="true"> dispari
+    
+    <br/><br/>
+    
+    <table class="w3-table w3-centered" style="width:80%">
+      <tr class="w3-black">
+        <th> NUMERO </th>
+        <th> DIVISORI </th>
+        <th> FATTORIALI </th>
+        <th> ESPONENZIALI </th>
+        <th> COUNT </th>
+      </tr>
+      <tr ng-repeat="n in numeri">
+        <td>{{ n.numero }}</td>
+        <td>{{ n.divisori }}</td>
+        <td>{{ n.fattoriali }}</td>
+        <td>{{ n.esponenziali }}</td>
+        <td>{{ n.count }}</td>
+      </tr>
+    </table>
+    
+  </div>
+
+</body>
+</html>

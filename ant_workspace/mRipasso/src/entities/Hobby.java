@@ -11,6 +11,9 @@ public class Hobby
 		this.id = id;
 		this.nome = nome;
 	}
+	public Hobby(String nome) {
+		this.nome = nome;
+	}
 	public int getId() {
 		return id;
 	}
@@ -25,6 +28,15 @@ public class Hobby
 		this.nome = nome;
 		return this;
 	}
-	
-	
+	public String toJSON()
+	{
+		String s = "{";
+		s += "'id':" + this.id + ",";
+		s += "'name':'" + this.nome + "'";
+		s += "}";
+
+		s = s.replace("'", "\"");
+		
+		return s;
+	}
 }

@@ -9,6 +9,7 @@
     <style>
       tr:hover {
         background-color: #2196f3;
+        color: white;
       }
     </style>
   </head>
@@ -17,10 +18,10 @@
   <div ng-app="animali" ng-controller="animaliController">
     <input type="text" ng-model="nome" placeholder="nome" autofocus/>
     <input type="text" ng-model="razza" placeholder="razza"/><br/>
-    <input type="text" ng-model="nome" placeholder="nome padrone"/>
-    <input type="text" ng-model="cognome" placeholder="cognome padrone"/>
+    <input type="text" ng-model="nomep" placeholder="nome padrone"/>
+    <input type="text" ng-model="cognomep" placeholder="cognome padrone"/>
     <button ng-click="aggiungi()">Aggiungi</button>
-    <input type="text" placeholder="ricerca padrone" ng-model="p" />
+    <input type="text" ng-model="p" placeholder="ricerca padrone" />
     
     <table class="w3-table w3-centered" style="margin-top:10px">
       <tr class="w3-orange">

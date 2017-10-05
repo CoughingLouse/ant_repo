@@ -1,0 +1,27 @@
+<br/>
+<style>
+	#insertpersondiv label, #insertpersondiv input
+	{
+		display: inline-block;
+		width: 50%;
+		text-align: right;
+	}
+	#insertpersondiv
+	{
+		width: 50%;
+		/*border: 1px solid black;*/
+		margin-left: 10%;
+		text-align: right;
+	}
+
+</style>
+<div id="insertpersondiv">
+	<form>
+		<label>Name: </label><input type="text" ng-model="np.name" autofocus/><br/>
+		<label>Age: </label><input type="number" ng-model="np.age"/><br/>
+		<label>Profession: </label><input type="text" ng-model="np.profession"/><br/>
+		<label>Hobbies: </label><input type="text" placeholder="Comma separated values" ng-model="np.hobbies">
+		<br/><br/>
+		<button ng-click="insertPerson()" class="w3-button w3-blue">Registra</button>
+	</form>
+</div>
