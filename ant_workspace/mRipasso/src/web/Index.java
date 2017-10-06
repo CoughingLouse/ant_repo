@@ -120,6 +120,12 @@ public class Index extends HttpServlet {
 			case "inserthobby":
 				ris = c.insertHobby(Utils.capitalize(request.getParameter("name"))) ? "Well done!" : "SOMETHING WRONG";
 				break;
+			case "deleteperson":
+				ris = c.deletePerson(Integer.parseInt(request.getParameter("id"))) ? "Well done!" : "SOMETHING WRONG";;
+				break;
+			case "deletehobby":
+				ris = c.deleteHobby(Integer.parseInt(request.getParameter("id"))) ? "Well done!" : "SOMETHING WRONG";;
+				break;
 			case "peoplejson":
 				response.setContentType("application/json");
 				response.getWriter().write(c.toJSON());

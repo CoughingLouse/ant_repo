@@ -1,7 +1,8 @@
 <br/>
-<div id="inserthobbydiv">
+<div class="forms">
 	<form>
-		<label>Person ID: </label><input type="text" ng-model="personidtodelete" autofocus/>&nbsp;
-		<button ng-click="deletePerson()" class="w3-button w3-blue">Aggiungi</button>
+		<label>Person ID: </label><input type="text" ng-model="idtodelete" autofocus/>&nbsp;
+		<button ng-click="deletePerson()" class="w3-button w3-blue">Remove</button>
 	</form>
+	{{personidtodelete}}
 </div>

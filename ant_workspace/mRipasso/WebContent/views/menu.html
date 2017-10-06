@@ -11,6 +11,11 @@
 			font-size: 1.5em;
 			font-family: 'Lobster', serif;
 		}
+		.forms
+		{
+			width:50%;
+			margin:auto";
+		}
 	</style>
 </head>
 <body ng-app="script" ng-controller="scriptController">
@@ -21,7 +26,7 @@
 		<a ng-click="mostra = 'forminsertperson'" class="w3-bar-item w3-button">InsertPerson</a>
 		<a ng-click="mostra = 'hobbyjson'" class="w3-bar-item w3-button">ListHobbies</a>
 		<a ng-click="mostra = 'inserthobby'" class="w3-bar-item w3-button">InsertHobby</a>
-		<a ng-click="mostra = 'deleteperson'" class="w3-bar-item w3-button">DeletePerson</a>
+		<!-- <a ng-click="mostra = 'deleteperson'" class="w3-bar-item w3-button">DeletePerson</a> -->
 	</div>
 
 	<div ng-include="'views/home.html'" ng-show="mostra == 'home'"></div>
@@ -29,7 +34,7 @@
 	<div ng-include="'views/forminsertperson.html'" ng-show="mostra == 'forminsertperson'"></div>
 	<div ng-include="'views/hobbyjson.html'" ng-show="mostra == 'hobbyjson'"></div>
 	<div ng-include="'views/inserthobby.html'" ng-show="mostra == 'inserthobby'"></div>
-	<div ng-include="'views/deleteperson.html'" ng-show="mostra == 'deleteperson'"></div>
+	<!-- <div ng-include="'views/deleteperson.html'" ng-show="mostra == 'deleteperson'"></div> -->
 	
 </body>
 </html>

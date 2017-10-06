@@ -27,7 +27,8 @@ public class City {
 			"insert into hobbies (name) values (?)";
 	private final static String DELETEPERSON =
 			"delete from people where id = ?";
-	//<!-- DELETE FROM `city`.`hobbies` WHERE `id`='492'; -->
+	private final static String DELETEHOBBY =
+			"delete from hobbies where id = ?";
 	
 	public City(String dbpath)
 	{
@@ -153,6 +154,7 @@ public class City {
 			PreparedStatement ps = db.prepareStatement(INSERTHOBBY);
 			ps.setString(1, Utils.capitalize(newHobby));
 			ps.executeUpdate();
+			ris = true;
 		}
 		catch(Exception e)
 		{
@@ -162,7 +164,6 @@ public class City {
 		return ris;
 	}
 	
-	// TODO: deletePerson()
 	public boolean deletePerson(int personid)
 	{
 		boolean ris = false;
@@ -171,6 +172,40 @@ public class City {
 			PreparedStatement ps = db.prepareStatement(DELETEPERSON);
 			ps.setInt(1, personid);
 			ps.executeUpdate();
+			
+//			load(); // ricarica la lista, ma pensando in termini di prestazioni -->
+			for(Person p:people)
+				if(p.getId() == personid)
+				{
+					people.remove(p);
+					break;
+				}
+			
+			ris = true;
+			
+			System.out.println("CANCELLATO ID " + personid);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return ris;
+	}
+	
+	// TODO: deleteHobby()
+	public boolean deleteHobby(int id)
+	{
+		boolean ris = false;
+		try
+		{
+			PreparedStatement ps = db.prepareStatement(DELETEHOBBY);
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			
+			ris = true;
+			
+			System.out.println("CANCELLATO HOBBY ID " + id);
 		}
 		catch(Exception e)
 		{

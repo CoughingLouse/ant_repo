@@ -1,23 +1,25 @@
 <style>
- 	tr:hover
+ 	thead tr:hover, tfoot tr:hover
  	{
  		background-color: ;
  		opacity: 0.3;
  	}
 </style>
 <table class="w3-table w3-striped">
-	<tr class="w3-khaki">
-		<th> ID </th>
-		<th> NOME </th>
-		<th> ET&Agrave; </th>
-		<th> PROFESSIONE </th>
-		<th> HOBBIES </th>
-	</tr>
-	<tr ng-repeat="p in peoplejson.people">
-		<td>{{p.id}}</td>
-		<td>{{p.name}}</td>
-		<td>{{p.age}}</td>
-		<td>{{p.profession}}</td>
-		<td><span ng-repeat="hobby in p.hobbies | orderBy : 'name'">{{hobby.name}} </span><br/></td>
-	</tr>
+	<thead ng-include="'views/list_table.html'">
+	</thead>
+	<tbody>
+		<tr ng-repeat="p in peoplejson.people">
+			<td>{{p.id}}</td>
+			<td>{{p.name}}</td>
+			<td><button ng-click="deletePerson(p.id)"> X </button></td>
+			<td>{{p.age}}</td>
+			<td>{{p.profession}}</td>
+			<td><span ng-repeat="hobby in p.hobbies | orderBy : 'name'">{{hobby.name}} </span><br/></td>
+		</tr>
+		</tbody>
+		<tfoot>
+	<thead ng-include="'views/list_table.html'">
+	</thead>
+		</tfoot>
 </table>

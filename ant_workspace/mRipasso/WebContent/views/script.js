@@ -5,7 +5,6 @@ app.controller('scriptController', function($scope, $http)
 	$scope.mostra = 'home';
 	$scope.np = {} // new person
 	$scope.nh = {} // new hobby
-	$scope.personidtodelete = 0;
 
 	$scope.ricarica = function()
 	{
@@ -43,7 +42,7 @@ app.controller('scriptController', function($scope, $http)
 	
 	$scope.insertHobby = function()
 	{
-		var query = "Index?command=inserthobby&name="+ $scope.nh.name;
+		var query = "Index?command=inserthobby&name=" + $scope.nh.name;
 		
 		$http.get(query)
 		.then(function(response)
@@ -54,18 +53,28 @@ app.controller('scriptController', function($scope, $http)
 			$scope.mostra = "hobbyjson";
 		});
 	}
-	
-	$scope.deletePerson = function()
+
+	$scope.deletePerson = function(id)
 	{
-		var query = "Index?command=deleteperson&id="+ $scope.personidtodelete;
+		var query = "Index?command=deleteperson&id=" + id;
 		
 		$http.get(query)
 		.then(function(response)
 		{
-			$scope.personidtodelete = {};
-			alert("Persona cancellata con successo");
+			alert("Requiescat in pace, Person with id "+id);
 			$scope.ricarica();
-			$scope.mostra = "list";
+		});
+	}
+	
+	$scope.deleteHobby = function(id)
+	{
+		var query = "Index?command=deletehobby&id=" + id;
+		
+		$http.get(query)
+		.then(function(response)
+		{
+			alert("Requiescat in pace, Hobby with id "+id);
+			$scope.ricarica();
 		});
 	}
 
