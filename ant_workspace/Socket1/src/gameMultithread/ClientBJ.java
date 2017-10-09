@@ -1,4 +1,4 @@
-package game;
+package gameMultithread;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
@@ -9,8 +9,8 @@ public class ClientBJ {
 	public static void main(String[] args) throws Exception
 	{
 		Scanner kb = new Scanner(System.in);
-		Socket socket = new Socket("localhost", 8888);
-//		Socket socket = new Socket("10.10.20.124", 6666); // IP Yari wifi Aula_Corsi_2
+
+		Socket socket = new Socket("10.10.20.124", 6666);
 		System.out.println("Ciao, sono un client");
 		DataInputStream in =
 				new DataInputStream(socket.getInputStream());
