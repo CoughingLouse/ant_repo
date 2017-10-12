@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+  <meta charset="UTF-8">
+  <head>
+    <title>[Angular] Curriculae</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <script src="curriculae.js"></script>
+  </head>
+
+  <body>
+  <div ng-app="curriculae" ng-controller="curriculaeController">
+    <div id="tools">
+      <label>Nome: </label><input type="text" placeholder="Nome" ng-model="cv.nome" autofocus/>
+      <label>Cognome: </label><input type="text" placeholder="Cognome" ng-model="cv.cognome"/><br/>
+      <label>Et&agrave;: </label><input type="number" placeholder="Età" ng-model="cv.eta"/>
+      <label>Data di nascita: </label><input type="date" placeholder="Nascita" ng-model="cv.nascita"/><br/>
+      <label>Residenza: </label><input type="text" placeholder="Residenza" ng-model="cv.residenza"/>
+      <label>Telefono: </label><input type="tel" placeholder="Telefono" ng-model="cv.telefono"/><br/>
+      <label>Esperienze: </label><input type="text" placeholder="Esperienze" ng-model="cv.esperienze"/>&nbsp;<button>+</button><br/>
+      <label>Skills: </label><input type="text" placeholder="Skills" ng-model="cv.skills"/>&nbsp;<button>+</button><br/>
+
+      <button ng-click="aggiungi()">Aggiungi</button>
+    </div>
+    
+    <div id="show">
+      <div ng-repeat="x in cvs">
+      {{x}}
+      </div>
+    </div>
+  </div>
+    
+</body>
+</html>

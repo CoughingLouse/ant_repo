@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  
+   <bean id="pc1" scope="prototype"
+   		class="antsrl.guerra.PC" autowire="byName">
+   </bean>
+   <bean id="pc2" scope="prototype"
+   		class="antsrl.guerra.PC" autowire="byType">
+   </bean>
+   <bean id="pc3" scope="prototype"
+   		class="antsrl.guerra.PC" autowire="constructor">
+   </bean>
+   <bean id="pc4" scope="prototype"
+   		class="antsrl.guerra.PC" autowire="no">
+   		<property name="" value=""/>
+   </bean>
+   
+   <bean id="soldato" scope="prototype" class="antsrl.guerra.Soldato">
+   	<property name="nome" value="Ken Shiro"/>
+   	<property name="livello" value="Master"/>
+   </bean>
+
+</beans>
