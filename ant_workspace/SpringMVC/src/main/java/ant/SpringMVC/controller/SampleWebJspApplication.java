@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package ant.SpringMVC.jsp;
-
-import java.util.ArrayList;
+package ant.SpringMVC.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -26,7 +24,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import ant.SpringMVC.resources.*;
+import ant.SpringMVC.res.DAO;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
@@ -37,11 +35,16 @@ public class SampleWebJspApplication extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(SampleWebJspApplication.class);
 	}
-
+	
+	@Bean
+	public DAO dao()
+	{
+		DAO dao = new DAO("jdbc:mysql://localhost/javestito?user=root&password=toor");
+		return dao;
+	}
 	
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(SampleWebJspApplication.class, args);
 	}
 	
-
 }
